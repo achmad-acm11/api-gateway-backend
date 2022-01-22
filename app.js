@@ -13,6 +13,7 @@ const courseRouter = require("./routes/course");
 const lessonRouter = require("./routes/lesson");
 const chapterRouter = require("./routes/chapter");
 const imageRouter = require("./routes/image");
+const myCourseRouter = require("./routes/myCourse");
 const verifyToken = require("./middlewares/verifyToken");
 
 const app = express();
@@ -32,5 +33,6 @@ app.use("/course", courseRouter);
 app.use("/lesson", lessonRouter);
 app.use("/chapter", chapterRouter);
 app.use("/image-course", imageRouter);
+app.use("/my-course", verifyToken, myCourseRouter);
 
 module.exports = app;
