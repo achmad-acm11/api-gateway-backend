@@ -4,7 +4,8 @@ const { URL_SERVICE_USER } = process.env;
 module.exports = {
   getOne: async (req, res) => {
     try {
-      const id = req.params.id;
+      // const id = req.params.id;
+      const id = req.user.data.id;
       const users = await axios.get(`${URL_SERVICE_USER}/user/${id}`);
       return res.json(users.data);
     } catch (error) {

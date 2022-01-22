@@ -1,19 +1,18 @@
 const { default: axios } = require("axios");
-const { URL_SERVICE_USER } = process.env;
+const { URL_SERVICE_COURSE } = process.env;
 
 module.exports = {
   update: async (req, res) => {
     try {
-      // const id = req.params.id;
-      const id = req.user.data.id;
+      const id = req.params.id;
       const response = await axios.put(
-        `${URL_SERVICE_USER}/user/${id}`,
+        `${URL_SERVICE_COURSE}/api/mentor/${id}`,
         req.body
       );
-      return res.json(response.data);
+      res.json(response.data);
     } catch (error) {
       const { status, data } = error.response;
-      return res.status(status).json(data);
+      res.status(status).json(data);
     }
   },
 };

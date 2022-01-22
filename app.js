@@ -8,6 +8,8 @@ const indexRouter = require("./routes/index");
 const mediaRouter = require("./routes/media");
 const userRouter = require("./routes/user");
 const refreshTokenRouter = require("./routes/refreshToken");
+const mentorRouter = require("./routes/mentor");
+const verifyToken = require("./middlewares/verifyToken");
 
 const app = express();
 
@@ -21,5 +23,6 @@ app.use("/", indexRouter);
 app.use("/media", mediaRouter);
 app.use("/user", userRouter);
 app.use("/refresh-token", refreshTokenRouter);
+app.use("/mentor", mentorRouter);
 
 module.exports = app;

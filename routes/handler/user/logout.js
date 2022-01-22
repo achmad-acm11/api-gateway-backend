@@ -4,10 +4,10 @@ const { URL_SERVICE_USER } = process.env;
 module.exports = {
   logout: async (req, res) => {
     try {
-      const response = await axios.post(
-        `${URL_SERVICE_USER}/user/logout`,
-        req.body
-      );
+      const id = req.user.data.id;
+      const response = await axios.post(`${URL_SERVICE_USER}/user/logout`, {
+        user_id: id,
+      });
       return res.json(response.data);
     } catch (error) {
       const { status, data } = error.response;

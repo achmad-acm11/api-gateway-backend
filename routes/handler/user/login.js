@@ -20,6 +20,11 @@ module.exports = {
         expiresIn: 60 * 10,
       });
 
+      await axios.post(`${URL_SERVICE_USER}/refresh-token`, {
+        user_id: data.id,
+        refresh_token: refreshToken,
+      });
+      
       response.data.data = {
         token,
         refresh_token: refreshToken,
